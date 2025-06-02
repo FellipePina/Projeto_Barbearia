@@ -1,0 +1,83 @@
+header{
+    width: 100%;
+}
+
+.header-content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+i{
+    color:$white-normal;
+}
+
+.header-icons{
+    display: flex;
+    gap: 14px;    
+}
+
+.header-icons a:hover{ //Aqui, no momento em que eu passar o mouse da tag <a>
+    i{ //Estou indicando uma alteração no meu i (icons)
+        animation: translateY 0.8s infinite alternate; 
+        // Aqui eu informo que terá uma animação, chamando o @keyFrame abaixo (translateY), com uma duração de 0.8 segundos.
+        //Infinite serve para que a animação não termine enquanto o mouse estiver sobre o ícone.
+        //Alternate deixa a animação suave, permitindo a execução na ida e depois fazendo o inverso na volta.
+        color:$red-light; 
+    }
+}
+
+@keyframes translateY { //Irei criar uma animação, através do keyFrames
+    from{ //Onde ela começa
+        transform: translateY(0) scale(1); //translateY (o) posição padrao. Scale (1) é a escala padrao
+    }
+    to{ //Onde ela finaliza
+        transform: translateY(-8px) scale(1); //translateY irá descer (-8px). Scale (1.1) irá aumentar o tamanho
+    }
+}
+
+.header-button{
+    border: 1px solid $white-normal;
+    padding: 8px 24px;
+    border-radius: 4px;
+    color: $white-normal;
+    background-color: transparent;
+    transition: background-color 0.8s; //temos uma transição, indicando que a mudança de background color deverá demorar 0.8s segundos
+}
+
+.header-button:hover{
+    border: 1px solid $red-light;
+    background-color: $red-light;
+}
+
+.header-logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 14px;
+}
+
+@media screen and (max-width: 768px){ //Daqui em diante, trabalharemos com os elementos quando a tela for menor ou igual a 768px
+
+    .header-content{ //alteramos a organização do display flex, para flex-direction column, para empilhar os elementos.
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        i{  //ícones presentes dentro header-content terão uma margem e tamanho alterados.
+            margin-top: 16px;
+            font-size: 34px;
+        }
+    }
+
+    .header-logo img{ //mudamos a proporção da logo
+        width: 160px;
+        margin-top: 46px;
+    }
+
+    .header-button{
+        display: none; //O botão não será visível nestas proporções
+    }
+
+}
