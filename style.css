@@ -482,6 +482,10 @@ i {
   .btn-whatsapp img {
     max-width: 64px;
   }
+  .copy p {
+    text-align: center;
+    max-width: 300px;
+  }
 }
 
 body {
